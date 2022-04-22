@@ -10,10 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.act_mysql.adapter.TemanAdapter;
 import com.example.act_mysql.database.Teman;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void readData(){
-        RequestQ rq = volley.newRequestQueue(getApplicationContext());
+        RequestQueue rq = Volley.newRequestQueue(getApplicationContext());
         JsonArrayRequest jArr = new JsonArrayRequest(url_select, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
